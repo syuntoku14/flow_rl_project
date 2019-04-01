@@ -1,3 +1,4 @@
 #!/bin/bash
 bash ~/bash_codes/vim_extension.bash
-pip install torch torchvision
+pip install torch torchvision tqdm pandas 
+pip install pixiedust

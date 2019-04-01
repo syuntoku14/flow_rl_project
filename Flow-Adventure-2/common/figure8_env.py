@@ -7,10 +7,16 @@ from flow.envs.loop.loop_accel import AccelEnv, ADDITIONAL_ENV_PARAMS
 from flow.scenarios.figure_eight import Figure8Scenario, ADDITIONAL_NET_PARAMS
 
 
-def gen_figure8_env(HORIZON=1500, sim_step=0.1, render=False):
+def gen_figure8_env(sim_number=0, HORIZON=1500, sim_step=0.1, render=False):
     # SumoParams
     sim_params = SumoParams(sim_step=sim_step, render=render)
-
+    
+    if sim_number == 0:
+        num_rl, num_idm = 1, 13
+    elif sim_number == 1:
+        num_rl, num_idm = 7, 7
+    elif sim_number == 2:
+        num_rl, num_idm == 14, 0
 
     # Vehicles Setting
     vehicles = VehicleParams()
@@ -22,7 +28,7 @@ def gen_figure8_env(HORIZON=1500, sim_step=0.1, render=False):
         car_following_params=SumoCarFollowingParams(
             speed_mode="obey_safe_speed",
         ),
-        num_vehicles=1)
+        num_vehicles=num_rl)
 
     vehicles.add(
         veh_id="idm",
@@ -33,7 +39,7 @@ def gen_figure8_env(HORIZON=1500, sim_step=0.1, render=False):
             speed_mode="obey_safe_speed",
         ),
         initial_speed=0,
-        num_vehicles=14)
+        num_vehicles=num_idm)
 
 
     # Additional Env params
