@@ -10,6 +10,6 @@ docker run --runtime=nvidia \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
 --entrypoint=/bin/bash \
 --shm-size 16G \
-syuntoku/flowtorch:sumo_v3
+syuntoku/flowtorch:ray_latest
 
 # lucasfischerberkeley/flowdesktop
