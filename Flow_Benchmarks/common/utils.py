@@ -57,3 +57,35 @@ def test_env(env, device, model, vis=False):
         if vis: env.render()
         total_reward += reward
     return total_reward
+
+
+def compute_gae(next_value, trajectory, gamma=0.99, tau=0.95):
+    rewards, masks, values = trajectory['rewards'], trajectory['masks'], trajectory['values']
+    values = values + [next_value]
+    gae = 0
+    returns = []
+    for step in reversed(range(len(rewards))):
+        delta = rewards[step] + gamma * values[step + 1] * masks[step] - values[step]
+        gae = delta + gamma * tau * masks[step] * gae
+        returns.insert(0, gae + values[step])
+    return returns
+
+
+def append_trajectory(trajectory, log_prob, value, state, action, reward, done, device):
+    trajectory['log_probs'].append(log_prob)
+    trajectory['values'].append(value)
+    trajectory['rewards'].append(torch.FloatTensor(reward).unsqueeze(1).to(device))
+    trajectory['masks'].append(torch.FloatTensor(1 - done).unsqueeze(1).to(device))
+    trajectory['states'].append(state)
+    trajectory['actions'].append(action)
+    return trajectory
+
+
+def cat_trajectory(trajectory, returns):
+    trajectory['log_probs'] = torch.cat(trajectory['log_probs']).detach()
+    trajectory['values'] = torch.cat(trajectory['values']).detach()
+    trajectory['returns'] = torch.cat(returns).detach()
+    trajectory['states'] = torch.cat(trajectory['states'])
+    trajectory['actions'] =  torch.cat(trajectory['actions'])
+    trajectory['advantages'] = trajectory['returns'] - trajectory['values']
+    return trajectory

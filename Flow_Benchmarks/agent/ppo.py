@@ -13,7 +13,12 @@ def ppo_iter(mini_batch_size, states, actions, log_probs, returns, advantage):
         
         
 
-def ppo_update(model, optimizer, ppo_epochs, mini_batch_size, states, actions, log_probs, returns, advantages, clip_param=0.2):
+def ppo_update(model, optimizer, ppo_epochs, mini_batch_size, trajectory, clip_param=0.2):
+    
+    states, actions, log_probs, returns, advantages = \
+        trajectory['states'], trajectory['actions'], trajectory['log_probs'], \
+        trajectory['returns'], trajectory['advantages']
+    
     for _ in range(ppo_epochs):
         for state, action, old_log_probs, return_, advantage in ppo_iter(mini_batch_size, states, actions, log_probs, returns, advantages):
             dist, value = model(state)
