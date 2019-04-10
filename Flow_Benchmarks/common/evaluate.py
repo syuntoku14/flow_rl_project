@@ -24,13 +24,13 @@ def make_vis_env(benchmark_name):
     return env
    
     
-def test_env(env, device, model, vis=False):
+def test_env(env, model, vis=False):
     state = env.reset()
     if vis: env.render()
     done = False
     total_reward = 0
     while not done:
-        state = torch.FloatTensor(state).unsqueeze(0).to(device)
+        state = torch.FloatTensor(state).unsqueeze(0).cpu()
         dist, _ = model(state)
         next_state, reward, done, _ = env.step(dist.sample().cpu().numpy()[0])
         state = next_state
