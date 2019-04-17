@@ -7,16 +7,13 @@ from flow.scenarios.figure_eight import Figure8Scenario
 from flow.envs.loop.loop_accel import AccelEnv
 import ray
 
-def make_vis_env(benchmark_name, render='drgb'):
-    """
-    render: 'rgb', 'drgb', 'gray', 'dgray', True, False
-    """
+def make_vis_env(benchmark_name):
     benchmark = __import__(
         "flow.benchmarks.%s" % benchmark_name, fromlist=["flow_params"])
     flow_params = benchmark.flow_params
     env_params = flow_params['env']
     sim_params = flow_params['sim']
-    sim_params.render = render
+    sim_params.render = True
     
     scenario = Figure8Scenario(
         flow_params['exp_tag'],
@@ -27,13 +24,13 @@ def make_vis_env(benchmark_name, render='drgb'):
     return env
    
     
-def test_env(env, model, vis=False):
+def test_env(env, device, model, vis=False):
     state = env.reset()
     if vis: env.render()
     done = False
     total_reward = 0
     while not done:
-        state = torch.FloatTensor(state).unsqueeze(0).cpu()
+        state = torch.FloatTensor(state).unsqueeze(0).to(device)
         dist, _ = model(state)
         next_state, reward, done, _ = env.step(dist.sample().cpu().numpy()[0])
         state = next_state
