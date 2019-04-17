@@ -27,19 +27,6 @@ def send_line(url, headers, message, image_path):
     files = {"imageFile": open(image_path, "rb")}
     r = requests.post(url=url ,headers = headers ,params=payload, files=files)
 
-    
-def compute_gae(next_value, trajectory, gamma=0.99, tau=0.95):
-    rewards, masks, values = trajectory['rewards'], trajectory['masks'], trajectory['values']
-    values = values + [next_value]
-    gae = 0
-    returns = []
-    for step in reversed(range(len(rewards))):
-        delta = rewards[step] + gamma * values[step + 1] * masks[step] - values[step]
-        gae = delta + gamma * tau * masks[step] * gae
-        returns.insert(0, gae + values[step])
-    return returns
-
-
 def append_trajectory(trajectory, log_prob, value, state, action, reward, done, device):
     trajectory['log_probs'].append(log_prob)
     trajectory['values'].append(value)

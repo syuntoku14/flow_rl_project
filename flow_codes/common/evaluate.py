@@ -7,20 +7,17 @@ from flow.scenarios.figure_eight import Figure8Scenario
 from flow.envs.loop.loop_accel import AccelEnv
 import ray
 
-def make_vis_env(benchmark_name):
-    benchmark = __import__(
-        "flow.benchmarks.%s" % benchmark_name, fromlist=["flow_params"])
-    flow_params = benchmark.flow_params
+def make_vis_env(flow_params, Env=AccelEnv, ScenarioClass=Figure8Scenario):
     env_params = flow_params['env']
     sim_params = flow_params['sim']
     sim_params.render = True
     
-    scenario = Figure8Scenario(
+    scenario = ScenarioClass(
         flow_params['exp_tag'],
         flow_params['veh'],
         flow_params['net'],
         initial_config=flow_params['initial'])
-    env = AccelEnv(env_params, sim_params, scenario)
+    env = Env(env_params, sim_params, scenario)
     return env
    
     
