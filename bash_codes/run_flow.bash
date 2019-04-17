@@ -1,15 +1,15 @@
-docker run --runtime=nvidia \
--it --rm \
+docker run -it --rm \
 --net=host \
--e NVIDIA_DRIVER_CAPABILITIES=utility,compute \
--e NVIDIA_VISIBLE_DEVICES=all \
 -e DISPLAY=$DISPLAY \
--v /home/syuntoku/rl_project:/headless/rl_project \
--v /home/syuntoku/.Xauthority:/headless/.Xauthority:rw \
--v /home/syuntoku/flow:/headless/flow \
+-v /home/syuntoku14/rl_project:/headless/rl_project \
+-v /home/syuntoku14/rl_project/ray_results:/headless/ray_results \
+-v /home/syuntoku14/.Xauthority:/headless/.Xauthority:rw \
+-v /home/syuntoku14/flow:/headless/flow \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
 --entrypoint=/bin/bash \
---shm-size 16G \
-syuntoku/flowtorch:ray_latest
+--shm-size 220G \
+syuntoku/flowtorch:latest
 
+# -e NVIDIA_DRIVER_CAPABILITIES=utility,compute \
+# -e NVIDIA_VISIBLE_DEVICES=all \
 # lucasfischerberkeley/flowdesktop
