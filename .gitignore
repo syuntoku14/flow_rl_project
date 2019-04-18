@@ -1,5 +1,6 @@
 others
 ray_results
+.Xauthority
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
