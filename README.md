@@ -28,6 +28,8 @@ Run
 ```
 inside the container
 
+Example codes are in ./rl_project/flow_codes/test
+
 ### Train an agent by rllib
 
 The codes are written in flow/flow/benchmarks/rllib
