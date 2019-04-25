@@ -1,0 +1,312 @@
+commit d383ec78a4f1bb895f810bd4cbd23b57ed8750df
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 24 14:13:02 2019 -0700
+
+    Add chainerrl ddpg trainer
+
+commit 2ee6880e05e2aafef14be179c61eb272caa15f74
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 24 11:58:07 2019 -0700
+
+    Delete my_codes results
+    Move Multi-agent to test
+
+commit 1ff72d8d700ff9c28137515f6542fa531cbd4c6b
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Tue Apr 23 19:10:03 2019 -0700
+
+    Modify README.md
+
+commit ec5ea349e45aa6e326c856b531b500ac4988398f
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Tue Apr 23 18:09:36 2019 -0700
+
+    Add ddpg-chainerrl
+
+commit b17c0d5d4670d4a309101034f55d248b9b6c9261
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 24 00:45:58 2019 +0000
+
+    Add DDPG PPO results
+
+commit 9783833f7d975ebc8939b15f8b2c289fd23267b2
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Sun Apr 21 21:19:56 2019 -0700
+
+    clean ES, PPO, agent to others
+
+commit bc38af03a8d3bc469dc8858bf75bbe2b2088d881
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 24 00:43:56 2019 +0000
+
+    Add PPO DDPG tune results
+
+commit 8c2c565160e98be095757dbb48011afd51281a27
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Sat Apr 20 06:01:17 2019 +0000
+
+    Add DDPG (global optimum) result
+
+commit 187ea35804b213984ac81d5dd5c908b7705f00bd
+Merge: 8485b24 f1f2b15
+Author: Toshinori Kitamura <syuntoku14@keio.jp>
+Date:   Fri Apr 19 19:27:22 2019 -0700
+
+    Merge pull request #13 from syuntoku14/es_rllib
+    
+    Delete failed DDPG results
+
+commit f1f2b15e6d6d9cdd9ac1cd45c3353c729eb0febf
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Fri Apr 19 19:25:37 2019 -0700
+
+    Delete failed DDPG results
+
+commit 8485b243f064103cf82b5acfac1b6814cf0c99fc
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Fri Apr 19 12:44:48 2019 -0700
+
+    Modified space_time analizer
+
+commit 378d1a014302b6297ef8fba43f310fa884893ad6
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Fri Apr 19 15:42:37 2019 +0000
+
+    Add DDPG agent result
+
+commit e6eb882d8368978af7b1232d28694e437aa1ecfa
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Fri Apr 19 02:40:56 2019 +0000
+
+    Add modified PPO results
+
+commit 39fdba9155d9d5fcb283eed543dc2b0bd78908f4
+Merge: bab1a3c 25901e3
+Author: Toshinori Kitamura <syuntoku14@keio.jp>
+Date:   Thu Apr 18 14:55:47 2019 -0700
+
+    Merge pull request #9 from syuntoku14/density
+    
+    Add space-time analyze
+
+commit 25901e354f2b192d0eaf7e84b34552c98c42ca3b
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Thu Apr 18 14:53:49 2019 -0700
+
+    Add space-time analyze
+
+commit 5b7bce4d5c9dfbf34b4f0ea3fac81ee9ddde9c9f
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Thu Apr 18 11:33:27 2019 -0700
+
+    Add space-time diagram result
+
+commit bab1a3cd623511ef00438a175c81fe939259c45d
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 23:58:54 2019 -0700
+
+    readd the results
+
+commit 141867f81733a14067837ffb3b3246bccab8fafc
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 23:13:55 2019 -0700
+
+    readded bash_codes and flow_codes
+
+commit fd5716cbe4a3b8a8342edf3b33871c96022ee05b
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 23:10:37 2019 -0700
+
+    Delete messy files from repo
+
+commit 74a1b7fff33d0404c66c3e4dc3af43899eb55b20
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 20:33:36 2019 -0700
+
+    Add analysis of mean velocity
+
+commit 01424db73df90c6588b906668a7f393355c96f15
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 15:20:08 2019 -0700
+
+    Add result analyze
+
+commit 06ea3460bee37d0017aa05b5e172eec44124856d
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 14:19:43 2019 -0700
+
+    Tidied up
+
+commit 44c2c6c6c8b3696ca85d83e8bae83ca9ec0f63c5
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 14:12:12 2019 -0700
+
+    Add gitignore
+
+commit cd9e69ea59502b66b1ac7551df5337c9b1bc3327
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 14:06:31 2019 -0700
+
+    Merge results, codes
+
+commit d0ea69c0ec8cce6935976cea3909be4362b612e8
+Merge: 185c5c3 f6c5a8c
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 13:52:56 2019 -0700
+
+    Merge branch 'master' of github.com:syuntoku14/flow_rl_project
+
+commit 185c5c375a7b846a0c8d2044263af69a9d4efe5b
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 13:50:38 2019 -0700
+
+    make others
+
+commit f6c5a8c05b7c8a1c912e692579abf9be9ed4c32e
+Merge: df2e16d 8a09b55
+Author: Toshinori Kitamura <syuntoku14@keio.jp>
+Date:   Wed Apr 17 13:47:25 2019 -0700
+
+    Merge pull request #5 from syuntoku14/gcloud
+    
+    Gcloud
+
+commit 8a09b55a2ba59923449051571175cc71a1c41386
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 19:32:08 2019 +0000
+
+    Add trained multi-merge-ppo results
+
+commit a0302e8204cedac2e6a7c4788da63bfb147465fe
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 17:51:48 2019 +0000
+
+    Train multi-merge PPO
+
+commit 2658ae164171f702aac965680403694aba49d9bd
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 17 17:39:26 2019 +0000
+
+    Train multi-agent merege PPO
+
+commit df2e16d0a3ff520432498196020149ee61881bc5
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 10 17:35:49 2019 -0700
+
+    Add proposal.pdf
+
+commit e8a39299ba4f54a5717a87aa9246fbc54f40b7e8
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Thu Apr 11 00:27:14 2019 +0000
+
+    Add movie
+
+commit 0c61acd1c9b9fe22245c94d227dc3c867a6758fb
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 10 23:01:13 2019 +0000
+
+    Trained my ES
+
+commit 044f0f5974547148541e748086e3e934b5186a5a
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Sat Apr 6 04:46:53 2019 +0000
+
+    Trained ES
+
+commit 13a6e65c1857c6d8acb436a42d7bf65ad71d2594
+Merge: bc8731e 875f51c
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Thu Apr 4 16:55:34 2019 +0000
+
+    Merge branch 'ray' of github.com:syuntoku14/flow_rl_project into ray
+
+commit bc8731e01aa249dc888b4b61babf851efc06cd6b
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Thu Apr 4 16:52:46 2019 +0000
+
+    Trained 500 times
+
+commit eec5c4d6af9c2fe9459d100c1d1a4d04f9a290d0
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Thu Apr 4 16:50:03 2019 +0000
+
+    trained by rllib
+
+commit 875f51c15b9f9218449f67632e1cfdfcf7f69d27
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 3 17:21:03 2019 -0700
+
+    Added test using ray
+
+commit 1388cba311f13f9d835d249485474de17400bb73
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 3 13:26:23 2019 -0700
+
+    moved adventure ray_tutorial to others
+
+commit e836ddf3ea84cda9f91f9aebcba10de896c394f2
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 3 12:25:54 2019 -0700
+
+    Add trajectory
+
+commit 8f1ff84acfba9ebcdd25c4ff86a02be7ffab4637
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Wed Apr 3 08:56:31 2019 -0700
+
+    Did ray_tutorial
+
+commit 0a05f3099dea85b15f8d7d07e31588a5f2179111
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Tue Apr 2 10:20:24 2019 -0700
+
+    Fixed benchmark env
+
+commit 1161ab910fa607a3c45da6d387d77fb5d25570ef
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Mon Apr 1 23:26:43 2019 -0700
+
+    Add ppo benchmark
+
+commit 6a869845e6885069d3561d566a0fabb87d1096ca
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Sun Mar 31 21:04:32 2019 -0700
+
+    Organize folders and files
+
+commit 84da4dc94bf008a65012d96f00c83b35d37104a3
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Sun Mar 31 18:04:23 2019 -0700
+
+    Test ppo
+
+commit b4e77c22fc42b401e5dbc208775c7809ee7f8cd6
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Thu Mar 28 18:51:01 2019 -0700
+
+    added figure8_env.py
+
+commit 0a6f54c13cca8ed0b03de4370a0f8d07d894e013
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Thu Mar 28 16:19:33 2019 -0700
+
+    Add Flow-Benchmarks by Pytorch
+
+commit 44cee1be168ff5da10e39755da86897669290400
+Merge: 35c0b85 e545567
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Thu Mar 28 09:35:09 2019 -0700
+
+    Merge branch 'master' of github.com:syuntoku14/flow_rl_project
+
+commit 35c0b859ab382cb3bd4ac01d3853123eb9701072
+Author: syuntoku14 <syuntoku14@keio.jp>
+Date:   Thu Mar 28 09:13:02 2019 -0700
+
+    First Commit
+
+commit e545567abf0e6c50813d619ad989906858f2dd39
+Author: Toshinori Kitamura <syuntoku14@keio.jp>
+Date:   Thu Mar 28 09:11:39 2019 -0700
+
+    Initial commit

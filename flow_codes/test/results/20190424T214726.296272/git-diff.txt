@@ -1,0 +1,48 @@
+diff --git a/bash_codes/run_flow.bash b/bash_codes/run_flow.bash
+index 1f36f07..fc82fd4 100755
+--- a/bash_codes/run_flow.bash
++++ b/bash_codes/run_flow.bash
+@@ -3,12 +3,13 @@ docker run -it --rm \
+ -e DISPLAY=$DISPLAY \
+ -v /home/syuntoku14/flow_rl_project:/headless/rl_project \
+ -v /home/syuntoku14/flow_rl_project/ray_results:/headless/ray_results \
++-v /home/syuntoku14/chainerrl:/headless/chainerrl \
+ -v /home/syuntoku14/.Xauthority:/headless/.Xauthority:rw \
+ -v /home/syuntoku14/flow:/headless/flow \
+ -v /tmp/.X11-unix:/tmp/.X11-unix \
+ --entrypoint=/bin/bash \
+ --shm-size 220G \
+-syuntoku/flowtorch:latest
++syuntoku/flowtorch:chainerrl
+ 
+ # -e NVIDIA_DRIVER_CAPABILITIES=utility,compute \
+ # -e NVIDIA_VISIBLE_DEVICES=all \
+diff --git a/flow_codes/test/train_ddpg_batch_multi_merge.py b/flow_codes/test/train_ddpg_batch_multi_merge.py
+index b398418..02413bb 100644
+--- a/flow_codes/test/train_ddpg_batch_multi_merge.py
++++ b/flow_codes/test/train_ddpg_batch_multi_merge.py
+@@ -43,20 +43,20 @@ def main():
+     parser.add_argument('--eval-n-runs', type=int, default=100)
+     parser.add_argument('--eval-interval', type=int, default=10 ** 5)    
+     parser.add_argument('--demo', action='store_true')
+-    parser.add_argument('--num-envs', type=int, default=2)
++    parser.add_argument('--num-envs', type=int, default=62)
+     
+     # model parameter
+     parser.add_argument('--steps', type=int, default=10 ** 4)
+     parser.add_argument('--gamma', type=float, default=0.995)
+-    parser.add_argument('--minibatch-size', type=int, default=200)
++    parser.add_argument('--minibatch-size', type=int, default=500)
+     parser.add_argument('--actor-lr', type=float, default=1e-4)
+     parser.add_argument('--critic-lr', type=float, default=1e-3)
+     parser.add_argument('--n-hidden-channels', type=int, default=300)
+     parser.add_argument('--n-hidden-layers', type=int, default=3)
+-    parser.add_argument('--replay-start-size', type=int, default=5000)
++    parser.add_argument('--replay-start-size', type=int, default=2000)
+     parser.add_argument('--n-update-times', type=int, default=1)
+     parser.add_argument('--target-update-interval',
+-                        type=int, default=5)
++                        type=int, default=15)
+     parser.add_argument('--target-update-method',
+                         type=str, default='soft', choices=['hard', 'soft'])
+     parser.add_argument('--soft-update-tau', type=float, default=1e-2)

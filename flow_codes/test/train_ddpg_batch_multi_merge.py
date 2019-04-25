@@ -43,20 +43,20 @@ def main():
     parser.add_argument('--eval-n-runs', type=int, default=100)
     parser.add_argument('--eval-interval', type=int, default=10 ** 5)    
     parser.add_argument('--demo', action='store_true')
-    parser.add_argument('--num-envs', type=int, default=2)
+    parser.add_argument('--num-envs', type=int, default=62)
     
     # model parameter
     parser.add_argument('--steps', type=int, default=10 ** 4)
     parser.add_argument('--gamma', type=float, default=0.995)
-    parser.add_argument('--minibatch-size', type=int, default=200)
+    parser.add_argument('--minibatch-size', type=int, default=500)
     parser.add_argument('--actor-lr', type=float, default=1e-4)
     parser.add_argument('--critic-lr', type=float, default=1e-3)
     parser.add_argument('--n-hidden-channels', type=int, default=300)
     parser.add_argument('--n-hidden-layers', type=int, default=3)
-    parser.add_argument('--replay-start-size', type=int, default=5000)
+    parser.add_argument('--replay-start-size', type=int, default=2000)
     parser.add_argument('--n-update-times', type=int, default=1)
     parser.add_argument('--target-update-interval',
-                        type=int, default=5)
+                        type=int, default=15)
     parser.add_argument('--target-update-method',
                         type=str, default='soft', choices=['hard', 'soft'])
     parser.add_argument('--soft-update-tau', type=float, default=1e-2)
