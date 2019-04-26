@@ -1,0 +1,196 @@
+diff --git a/flow_codes/test/chainerrl-ddpg.ipynb b/flow_codes/test/chainerrl-ddpg.ipynb
+index 3be2d59..edc49e1 100644
+--- a/flow_codes/test/chainerrl-ddpg.ipynb
++++ b/flow_codes/test/chainerrl-ddpg.ipynb
+@@ -17,7 +17,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 12,
++   "execution_count": 1,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -59,7 +59,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 35,
++   "execution_count": 2,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -86,13 +86,13 @@
+     "return_window_size = 100\n",
+     "step_offset = 0\n",
+     "log_interval = 5\n",
+-    "num_envs = 2\n",
++    "num_envs = 4\n",
+     "outdir = 'results'"
+    ]
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 24,
++   "execution_count": 3,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -110,7 +110,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 25,
++   "execution_count": 4,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -124,20 +124,9 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 58,
++   "execution_count": 5,
+    "metadata": {},
+-   "outputs": [
+-    {
+-     "name": "stderr",
+-     "output_type": "stream",
+-     "text": [
+-      "INFO:root: Starting SUMO on port 57510\n",
+-      "DEBUG:root: Cfg file: /headless/flow/flow/core/kernel/scenario/debug/cfg/multi_merge_20190424-1910101556133010.9950006.sumo.cfg\n",
+-      "DEBUG:root: Emission file: None\n",
+-      "DEBUG:root: Step length: 0.5\n"
+-     ]
+-    }
+-   ],
++   "outputs": [],
+    "source": [
+     "sample_env = create_env()\n",
+     "\n",
+@@ -148,7 +137,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 28,
++   "execution_count": 6,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -181,7 +170,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 29,
++   "execution_count": 7,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -198,7 +187,7 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 30,
++   "execution_count": 8,
+    "metadata": {},
+    "outputs": [],
+    "source": [
+@@ -216,31 +205,17 @@
+   },
+   {
+    "cell_type": "code",
+-   "execution_count": 53,
++   "execution_count": 9,
+    "metadata": {
+     "scrolled": false
+    },
+    "outputs": [
+     {
+-     "name": "stderr",
++     "name": "stdout",
+      "output_type": "stream",
+      "text": [
+-      "INFO:root: Starting SUMO on port 53180\n",
+-      "DEBUG:root: Cfg file: /headless/flow/flow/core/kernel/scenario/debug/cfg/multi_merge_20190424-1910101556133010.9950006.sumo.cfg\n",
+-      "DEBUG:root: Emission file: None\n",
+-      "DEBUG:root: Step length: 0.5\n",
+-      "INFO:root: Starting SUMO on port 49462\n",
+-      "DEBUG:root: Cfg file: /headless/flow/flow/core/kernel/scenario/debug/cfg/multi_merge_20190424-1910101556133010.9950006.sumo.cfg\n",
+-      "DEBUG:root: Emission file: None\n",
+-      "DEBUG:root: Step length: 0.5\n",
+-      "INFO:root: Starting SUMO on port 49462\n",
+-      "INFO:root: Starting SUMO on port 53180\n",
+-      "DEBUG:root: Cfg file: /headless/flow/flow/core/kernel/scenario/debug/cfg/multi_merge_20190424-1910101556133010.9950006.sumo.cfg\n",
+-      "DEBUG:root: Emission file: None\n",
+-      "DEBUG:root: Step length: 0.5\n",
+-      "DEBUG:root: Cfg file: /headless/flow/flow/core/kernel/scenario/debug/cfg/multi_merge_20190424-1910101556133010.9950006.sumo.cfg\n",
+-      "DEBUG:root: Emission file: None\n",
+-      "DEBUG:root: Step length: 0.5\n"
++      "Error during start: no element found (line 0)\n",
++      "Retrying in 1 seconds...\n"
+      ]
+     }
+    ],
+@@ -250,6 +225,49 @@
+   },
+   {
+    "cell_type": "code",
++   "execution_count": 10,
++   "metadata": {},
++   "outputs": [
++    {
++     "data": {
++      "text/plain": [
++       "[OrderedDict([('flow_1.1',\n",
++       "               array([0.72628844, 0.01775779, 0.03562031, 0.02077982, 0.03382802],\n",
++       "                     dtype=float32)),\n",
++       "              ('flow_1.2',\n",
++       "               array([0.3618303 , 0.0483769 , 0.01500913, 0.02306132, 0.01532757],\n",
++       "                     dtype=float32))]),\n",
++       " OrderedDict([('flow_1.1',\n",
++       "               array([0.7310223 , 0.02363872, 0.0376795 , 0.0232279 , 0.03446833],\n",
++       "                     dtype=float32)),\n",
++       "              ('flow_1.2',\n",
++       "               array([0.3610066 , 0.04942507, 0.0150793 , 0.02275457, 0.01529284],\n",
++       "                     dtype=float32))]),\n",
++       " OrderedDict([('flow_1.1',\n",
++       "               array([0.7229467 , 0.01452899, 0.03513331, 0.02920672, 0.03592538],\n",
++       "                     dtype=float32)),\n",
++       "              ('flow_1.2',\n",
++       "               array([0.35902146, 0.0485485 , 0.01493873, 0.02235023, 0.01516871],\n",
++       "                     dtype=float32))]),\n",
++       " OrderedDict([('flow_1.1',\n",
++       "               array([0.72705334, 0.02697099, 0.03804203, 0.03757353, 0.03730306],\n",
++       "                     dtype=float32)),\n",
++       "              ('flow_1.2',\n",
++       "               array([0.35973638, 0.04770129, 0.01491463, 0.02299673, 0.01523421],\n",
++       "                     dtype=float32))])]"
++      ]
++     },
++     "execution_count": 10,
++     "metadata": {},
++     "output_type": "execute_result"
++    }
++   ],
++   "source": [
++    "env.reset()"
++   ]
++  },
++  {
++   "cell_type": "code",
+    "execution_count": 32,
+    "metadata": {},
+    "outputs": [
+diff --git a/flow_codes/test/train_ddpg_batch_multi_merge.py b/flow_codes/test/train_ddpg_batch_multi_merge.py
+index b398418..762544f 100644
+--- a/flow_codes/test/train_ddpg_batch_multi_merge.py
++++ b/flow_codes/test/train_ddpg_batch_multi_merge.py
+@@ -43,7 +43,7 @@ def main():
+     parser.add_argument('--eval-n-runs', type=int, default=100)
+     parser.add_argument('--eval-interval', type=int, default=10 ** 5)    
+     parser.add_argument('--demo', action='store_true')
+-    parser.add_argument('--num-envs', type=int, default=2)
++    parser.add_argument('--num-envs', type=int, default=4)
+     
+     # model parameter
+     parser.add_argument('--steps', type=int, default=10 ** 4)
