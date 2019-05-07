@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "/opt/conda/envs/flow/lib/python3.5/site-packages/ray/tune/trial_runner.py", line 261, in _process_events
+    result = self.trial_executor.fetch_result(trial)
+  File "/opt/conda/envs/flow/lib/python3.5/site-packages/ray/tune/ray_trial_executor.py", line 211, in fetch_result
+    result = ray.get(trial_future[0])
+  File "/opt/conda/envs/flow/lib/python3.5/site-packages/ray/worker.py", line 2386, in get
+    raise value
+ray.worker.RayTaskError: [36mray_PPOAgent:train()[39m (pid=32001, host=flow-main)
+  File "/opt/conda/envs/flow/lib/python3.5/site-packages/ray/rllib/agents/agent.py", line 279, in train
+    result = Trainable.train(self)
+  File "/opt/conda/envs/flow/lib/python3.5/site-packages/ray/tune/trainable.py", line 146, in train
+    result = self._train()
+  File "/opt/conda/envs/flow/lib/python3.5/site-packages/ray/rllib/agents/ppo/ppo.py", line 111, in _train
+    self.config["collect_metrics_timeout"])
+  File "/opt/conda/envs/flow/lib/python3.5/site-packages/ray/rllib/optimizers/policy_optimizer.py", line 123, in collect_metrics
+    timeout_seconds=timeout_seconds)
+  File "/opt/conda/envs/flow/lib/python3.5/site-packages/ray/rllib/evaluation/metrics.py", line 38, in collect_episodes
+    metric_lists = ray.get(collected)
+ray.worker.RayTaskError: [36mray_PolicyEvaluator:apply()[39m (pid=32042, host=flow-main)
+  File "/opt/conda/envs/flow/lib/python3.5/site-packages/ray/memory_monitor.py", line 78, in raise_if_low_memory
+    self.error_threshold))
+ray.memory_monitor.RayOutOfMemoryError: More than 95% of the memory on node flow-main is used (57.88 / 60.78 GB). The top 5 memory consumers are:
+
+PID	MEM	COMMAND
+12053	5.21GB	/opt/conda/envs/flow/bin/python -m ipykernel_launcher -f /headless/.local/share/jupyter/runtime/kern
+32001	3.14GB	ray_PPOAgent:train()
+14134	0.76GB	ray_PPOAgent:train()
+14131	0.76GB	ray_PPOAgent:train()
+14181	0.75GB	ray_PPOAgent:train()
+
+In addition, ~14.13 GB of shared memory is currently being used by the Ray object store. You can set the object store size with the `object_store_memory` parameter when starting Ray, and the max Redis size with `redis_max_memory`.
+
+
