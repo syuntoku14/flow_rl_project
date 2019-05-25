@@ -75,18 +75,17 @@ def main():
     step_size = 5e-4
 
     ray.init(num_cpus=num_cpus, logging_level=50, ignore_reinit_error=True)
+    
+    # set the config
     benchmark = __import__(
                 "flow.benchmarks.%s" % benchmark_name, fromlist=["flow_params"])
-    flow_params = benchmark.buffered_obs_flow_params
-    create_env, env_name = make_create_env(params=flow_params, version=0)
-    register_env(env_name, create_env)
-    
+    flow_params = benchmark.buffered_obs_flow_params    
     horizon = flow_params["env"].horizon
     
     config = deepcopy(DEFAULT_CONFIG)
     config["num_workers"] = min(num_cpus, num_rollouts)
     config["train_batch_size"] = horizon * num_rollouts
-    config["sample_batch_size"] = horizon
+    config["sample_batch_size"] = horizon / 2
     config["use_gae"] = True
     config["horizon"] = horizon
     config["lambda"] = gae_lambda
@@ -107,13 +106,26 @@ def main():
         flow_params, cls=FlowParamsEncoder, sort_keys=True, indent=4)
     config['env_config']['flow_params'] = flow_json
     
+    # register environment
+    create_env, env_name = make_create_env(params=flow_params, version=0)
+    register_env(env_name, create_env)
+    
+    # set policy_graph to config
+    env = create_env()
+    default_policy = (PPOPolicyGraph, env.observation_space, env.action_space, {})
+    policy_graph = {"default_policy": default_policy}
+    config["multiagent"] = {
+            'policy_graphs': policy_graph,
+            'policy_mapping_fn': tune.function(lambda agent_id: "default_policy")
+        }
+    
     tune.run_experiments({
         exp_name: {
             "run": GailTrainer,
             "env": env_name,
-            "checkpoint_freq": 5,
+            "checkpoint_freq": 25,
             "max_failures": 999,
-            "num_samples": 1,
+            "num_samples": 5,
             "stop": {
                 "training_iteration": num_iter
             },
