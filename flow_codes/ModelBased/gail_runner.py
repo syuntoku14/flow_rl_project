@@ -7,13 +7,14 @@ import ray
 from ray import tune
 from ray.rllib.agents.ppo.ppo_policy_graph import PPOPolicyGraph
 from ray.rllib.agents.ppo.ppo import DEFAULT_CONFIG
-from ray.rllib.evaluation import PolicyGraph, PolicyEvaluator, SampleBatch
+from ray.rllib.evaluation import PolicyEvaluator, SampleBatch
 from ray.rllib.evaluation.metrics import collect_metrics
 from ray.tune.registry import register_env
 
 from flow.multiagent_envs import MultiWaveAttenuationPOEnv
 from flow.utils.registry import make_create_env
 from flow.utils.rllib import FlowParamsEncoder, get_flow_params
+from gail import GailTrainer
 
 parser = argparse.ArgumentParser()
 
@@ -61,39 +62,6 @@ def on_episode_end(info):
     episode.custom_metrics["cost2"] = cost2
     episode.custom_metrics["system_level_velocity"] = mean_vel
     episode.custom_metrics["outflow_rate"] = outflow
-
-
-def training_workflow(config, reporter):
-    tf.reset_default_graph()
-    sess = tf.InteractiveSession()
-    flow_params = get_flow_params(config)
-    create_env, env_name = make_create_env(params=flow_params, version=0)
-    register_env(env_name, create_env)
-    
-    env = create_env()   
-    default_policy = (PPOPolicyGraph, env.observation_space, env.action_space, config)
-    policy_graph={"default_policy": default_policy}
-    policy_mapping_fn=lambda agent_id: "default_policy"
-    
-    policy = PPOPolicyGraph(env.observation_space, env.action_space, config)
-    workers = [
-        PolicyEvaluator.as_remote().remote(
-            create_env, 
-            policy_graph=policy_graph,
-            policy_mapping_fn=policy_mapping_fn,
-            batch_steps=config["sample_batch_size"],
-            callbacks=config["callbacks"])
-        for _ in range(config["num_workers"])]
-    
-    for _ in range(config["num_iter"]):
-        weights = ray.put({"default_policy": policy.get_weights()})
-        for w in workers:
-            w.set_weights.remote(weights)       
-        batch = SampleBatch.concat_samples(
-            ray.get([w.sample.remote() for w in workers]))
-        policy.learn_on_batch(batch)
-        reporter(**collect_metrics(remote_evaluators=workers))
-
         
         
 def main():
@@ -106,10 +74,13 @@ def main():
     gae_lambda = 0.97
     step_size = 5e-4
 
-    ray.init(num_cpus=num_cpus, logging_level=40, ignore_reinit_error=True)
+    ray.init(num_cpus=num_cpus, logging_level=50, ignore_reinit_error=True)
     benchmark = __import__(
                 "flow.benchmarks.%s" % benchmark_name, fromlist=["flow_params"])
     flow_params = benchmark.buffered_obs_flow_params
+    create_env, env_name = make_create_env(params=flow_params, version=0)
+    register_env(env_name, create_env)
+    
     horizon = flow_params["env"].horizon
     
     config = deepcopy(DEFAULT_CONFIG)
@@ -126,7 +97,6 @@ def main():
     config["model"]["fcnet_hiddens"] = [128, 64, 32]
     config["observation_filter"] = "NoFilter"
     config["entropy_coeff"] = 0.0
-    config["num_iter"] = num_iter
     
     config['callbacks']['on_episode_start'] = ray.tune.function(on_episode_start)
     config['callbacks']['on_episode_step'] = ray.tune.function(on_episode_step)
@@ -139,11 +109,15 @@ def main():
     
     tune.run_experiments({
         exp_name: {
-            "run": training_workflow,
-            "checkpoint_freq": 25,
+            "run": GailTrainer,
+            "env": env_name,
+            "checkpoint_freq": 5,
             "max_failures": 999,
             "num_samples": 1,
-            "config": {**config}
+            "stop": {
+                "training_iteration": num_iter
+            },
+            "config": config
         }   
     })
 
