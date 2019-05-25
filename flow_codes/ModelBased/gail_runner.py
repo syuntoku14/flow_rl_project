@@ -76,13 +76,18 @@ def main():
     gae_lambda = 0.97
     step_size = 5e-4
 
-    ray.init(num_cpus=num_cpus, logging_level=50, ignore_reinit_error=True)
+    ray.init(logging_level=50, ignore_reinit_error=True)
     
     # set the config
     benchmark = __import__(
                 "flow.benchmarks.%s" % benchmark_name, fromlist=["flow_params"])
-    flow_params = benchmark.buffered_obs_flow_params    
+    flow_params = deepcopy(benchmark.buffered_obs_flow_params)
     horizon = flow_params["env"].horizon
+    flow_params["env"].additional_params["eta1"] = 1.0
+    flow_params["env"].additional_params["eta2"] = 0.1
+    flow_params["env"].additional_params["eta3"] = 0.0
+    flow_params["env"].additional_params["t_min"] = 10.0
+    flow_params["env"].additional_params["buf_length"] = 3
     
     config = deepcopy(DEFAULT_CONFIG)
     config["num_workers"] = min(num_cpus, num_rollouts)
