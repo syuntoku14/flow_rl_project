@@ -26,6 +26,7 @@ parser.add_argument("--benchmark_name", type=str, default="multi_merge")
 parser.add_argument("--num_cpus", type=int, default=3)
 parser.add_argument("--num_rollouts", type=int, default=2)
 parser.add_argument("--num_iter", type=int, default=3)
+parser.add_argument("--num_samples", type=int, default=3)
 
 
 def on_episode_start(info):
@@ -69,6 +70,7 @@ def main():
     num_cpus = args.num_cpus
     num_rollouts = args.num_rollouts
     num_iter = args.num_iter
+    num_samples = args.num_samples
     benchmark_name = args.benchmark_name
     exp_name = args.exp_name
     gae_lambda = 0.97
@@ -85,7 +87,7 @@ def main():
     config = deepcopy(DEFAULT_CONFIG)
     config["num_workers"] = min(num_cpus, num_rollouts)
     config["train_batch_size"] = horizon * num_rollouts
-    config["sample_batch_size"] = horizon / 2
+    config["sample_batch_size"] = horizon
     config["use_gae"] = True
     config["horizon"] = horizon
     config["lambda"] = gae_lambda
@@ -125,7 +127,7 @@ def main():
             "env": env_name,
             "checkpoint_freq": 25,
             "max_failures": 999,
-            "num_samples": 5,
+            "num_samples": num_samples,
             "stop": {
                 "training_iteration": num_iter
             },
