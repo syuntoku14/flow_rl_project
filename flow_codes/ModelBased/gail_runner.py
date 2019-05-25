@@ -1,4 +1,5 @@
 import gym, pickle, argparse, json
+import numpy as np
 from itertools import product
 from copy import deepcopy
 import tensorflow as tf
@@ -21,9 +22,9 @@ parser.add_argument("--exp_name", type=str)
 
 # optional input parameters
 parser.add_argument("--benchmark_name", type=str, default="multi_merge")
-parser.add_argument("--num-cpus", type=int, default=3)
-parser.add_argument("--num-rollouts", type=int, default=2)
-parser.add_argument("--num-iters", type=int, default=3)
+parser.add_argument("--num_cpus", type=int, default=3)
+parser.add_argument("--num_rollouts", type=int, default=2)
+parser.add_argument("--num_iter", type=int, default=3)
 
 
 def on_episode_start(info):
@@ -80,7 +81,8 @@ def training_workflow(config, reporter):
             create_env, 
             policy_graph=policy_graph,
             policy_mapping_fn=policy_mapping_fn,
-            batch_steps=config["sample_batch_size"])
+            batch_steps=config["sample_batch_size"],
+            callbacks=config["callbacks"])
         for _ in range(config["num_workers"])]
     
     for _ in range(config["num_iter"]):
@@ -91,13 +93,14 @@ def training_workflow(config, reporter):
             ray.get([w.sample.remote() for w in workers]))
         policy.learn_on_batch(batch)
         reporter(**collect_metrics(remote_evaluators=workers))
+
         
         
 def main():
     args = parser.parse_args()
     num_cpus = args.num_cpus
     num_rollouts = args.num_rollouts
-    num_iter = args.num_iters
+    num_iter = args.num_iter
     benchmark_name = args.benchmark_name
     exp_name = args.exp_name
     gae_lambda = 0.97
@@ -137,7 +140,10 @@ def main():
     tune.run_experiments({
         exp_name: {
             "run": training_workflow,
-            "config": config
+            "checkpoint_freq": 25,
+            "max_failures": 999,
+            "num_samples": 1,
+            "config": {**config}
         }   
     })
 
