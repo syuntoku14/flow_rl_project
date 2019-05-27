@@ -81,7 +81,7 @@ def main():
     # set the config
     benchmark = __import__(
                 "flow.benchmarks.%s" % benchmark_name, fromlist=["flow_params"])
-    flow_params = deepcopy(benchmark.buffered_obs_flow_params)
+    flow_params = deepcopy(benchmark.custom_rew_flow_params)
     horizon = flow_params["env"].horizon
     flow_params["env"].additional_params["eta1"] = 1.0
     flow_params["env"].additional_params["eta2"] = 0.1
@@ -122,18 +122,21 @@ def main():
     
     # set policy_graph to config
     env = create_env()
+
+    POLICY_ID = 'rl'
     default_policy = (PPOPolicyGraph, env.observation_space, env.action_space, {})
-    policy_graph = {"default_policy": default_policy}
+    policy_graph = {POLICY_ID: default_policy}
     config["multiagent"] = {
             'policy_graphs': policy_graph,
-            'policy_mapping_fn': tune.function(lambda agent_id: "default_policy")
+            'policy_mapping_fn': tune.function(lambda agent_id: POLICY_ID),
+            'policies_to_train': [POLICY_ID]
         }
     
     tune.run_experiments({
         exp_name: {
             "run": MEIRTrainer,
             "env": env_name,
-            "checkpoint_freq": 25,
+            "checkpoint_freq": 5,
             "max_failures": 999,
             "num_samples": num_samples,
             "stop": {
