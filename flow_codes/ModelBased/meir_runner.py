@@ -87,7 +87,7 @@ def main():
     flow_params["env"].additional_params["eta2"] = 0.1
     flow_params["env"].additional_params["eta3"] = 0.0
     flow_params["env"].additional_params["t_min"] = 10.0
-    flow_params["env"].additional_params["buf_length"] = 3
+    flow_params["env"].additional_params["buf_length"] = 1
     
     config = deepcopy(DEFAULT_CONFIG)
     config["num_workers"] = min(num_cpus, num_rollouts)
@@ -103,6 +103,9 @@ def main():
     config["model"]["fcnet_hiddens"] = [128, 64, 32]
     config["observation_filter"] = "NoFilter"
     config["entropy_coeff"] = 0.0
+    config["num_train"] = 20
+    config["expert_path"] = "/headless/rl_project/flow_codes/ModelBased/expert_sample"
+    config["theta_lr"] = tune.grid_search([0.01, 0.05, 0.1])
     
     config['callbacks']['on_episode_start'] = ray.tune.function(on_episode_start)
     config['callbacks']['on_episode_step'] = ray.tune.function(on_episode_step)
