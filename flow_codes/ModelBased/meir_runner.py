@@ -26,6 +26,7 @@ parser.add_argument("--benchmark_name", type=str, default="multi_merge")
 parser.add_argument("--num_cpus", type=int, default=3)
 parser.add_argument("--num_rollouts", type=int, default=2)
 parser.add_argument("--num_iter", type=int, default=3)
+parser.add_argument("--num_train_per_iter", type=int, default=20)
 parser.add_argument("--num_samples", type=int, default=3)
 
 
@@ -70,6 +71,7 @@ def main():
     num_cpus = args.num_cpus
     num_rollouts = args.num_rollouts
     num_iter = args.num_iter
+    num_train_per_iter = args.num_train_per_iter
     num_samples = args.num_samples
     benchmark_name = args.benchmark_name
     exp_name = args.exp_name
@@ -92,7 +94,7 @@ def main():
     config = deepcopy(DEFAULT_CONFIG)
     config["num_workers"] = min(num_cpus, num_rollouts)
     config["train_batch_size"] = horizon * num_rollouts
-    config["sample_batch_size"] = horizon
+    config["sample_batch_size"] = horizon / 2
     config["use_gae"] = True
     config["horizon"] = horizon
     config["lambda"] = gae_lambda
@@ -103,9 +105,9 @@ def main():
     config["model"]["fcnet_hiddens"] = [128, 64, 32]
     config["observation_filter"] = "NoFilter"
     config["entropy_coeff"] = 0.0
-    config["num_train"] = 20
+    config["num_train"] = num_train_per_iter
     config["expert_path"] = "/headless/rl_project/flow_codes/ModelBased/expert_sample"
-    config["theta_lr"] = tune.grid_search([0.01, 0.05, 0.1])
+    config["theta_lr"] = tune.grid_search([0.05, 0.1, 0.5])
     
     config['callbacks']['on_episode_start'] = ray.tune.function(on_episode_start)
     config['callbacks']['on_episode_step'] = ray.tune.function(on_episode_step)
