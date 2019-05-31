@@ -1,0 +1,2 @@
+good_results = ['PPO_eta2:0.1_eta3:0.0_tmin:10.0_buflen:1_2_2019-05-30_01-08-56_abugxdn',
+               'GAILTrainer_MultiWaveAttenuationMergePOEnvGAIL-v0_3_discrim_lr=0.005_2019-05-31_00-57-4510ppymby']  # in latest and latest_gail

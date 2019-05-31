@@ -1,0 +1,39 @@
+Traceback (most recent call last):
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/tune/trial_runner.py", line 443, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/tune/ray_trial_executor.py", line 315, in fetch_result
+    result = ray.get(trial_future[0])
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/worker.py", line 2193, in get
+    raise value
+ray.exceptions.RayTaskError: [36mray_GAILTrainer:train()[39m (pid=7177, host=flow-main)
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/rllib/agents/trainer.py", line 333, in train
+    raise e
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/rllib/agents/trainer.py", line 322, in train
+    result = Trainable.train(self)
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/tune/trainable.py", line 151, in train
+    result = self._train()
+  File "/headless/rl_project/flow_codes/InverseRL/gail/gail.py", line 134, in _train
+    samples = self.sample(self.train_batch_size)
+  File "/headless/rl_project/flow_codes/InverseRL/gail/gail.py", line 100, in sample
+    e.sample.remote() for e in self.remote_evaluators
+ray.exceptions.RayTaskError: [36mray_CustomEnvPolicyEvaluator:sample()[39m (pid=7153, host=flow-main)
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/rllib/evaluation/policy_evaluator.py", line 439, in sample
+    batches = [self.input_reader.next()]
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/rllib/evaluation/sampler.py", line 60, in next
+    batches = [self.get_data()]
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/rllib/evaluation/sampler.py", line 101, in get_data
+    item = next(self.rollout_provider)
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/rllib/evaluation/sampler.py", line 317, in _env_runner
+    soft_horizon)
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/rllib/evaluation/sampler.py", line 405, in _process_observations
+    policy_id).transform(raw_obs)
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/rllib/models/preprocessors.py", line 162, in transform
+    self.check_shape(observation)
+  File "/opt/conda/envs/flow-latest/lib/python3.5/site-packages/ray/rllib/models/preprocessors.py", line 61, in check_shape
+    self._obs_space, observation)
+ValueError: ('Observation outside expected value range', Box(12,), array([ 6.2287837e-01,  1.7786995e-02,  4.7062773e-02,  2.8605681e-02,
+        2.6130041e-02,  3.8381878e-01, -3.3366665e+01,  3.4366665e+01,
+        1.0000000e+00, -3.3366665e+01,  1.0000000e+00,  0.0000000e+00],
+      dtype=float32))
+
+
