@@ -8,7 +8,7 @@ docker run -it --rm \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
 --entrypoint=/bin/bash \
 --shm-size 220G \
-syuntoku/flowtorch:latest
+syuntoku/flowtorch:ray_latest
 
 # -e NVIDIA_DRIVER_CAPABILITIES=utility,compute \
 # -e NVIDIA_VISIBLE_DEVICES=all \
