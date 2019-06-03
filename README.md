@@ -4,11 +4,9 @@ The goal of this project is to develop an multi-agent for multi-merge env in "fl
 
 ## Setup
 
-1. docker pull syuntoku/flowtouch:latest
+1. docker pull syuntoku/flowtouch:ray_latest
 2. git clone git@github.com:syuntoku14/flow_rl_project.git
 3. git clone git@github.com:syuntoku14/flow.git
-
-When modifying the repository, please create your branch at first.
 
 4. modify "syuntoku14" in flow_rl_project/bash_codes/run_flow.bash as your username.
 5. modify the port number in flow_rl_project/bash_codes/run_jupyter.bash
@@ -28,7 +26,7 @@ Run
 ```
 inside the container
 
-Example codes are in ./rl_project/flow_codes/test
+Example codes are in ./rl_project/flow_codes/analyze
 
 ### Train an agent by rllib
 
