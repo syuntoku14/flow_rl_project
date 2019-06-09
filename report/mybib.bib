@@ -1,0 +1,339 @@
+@phdthesis{Wu:EECS-2018-132,
+    Author = {Wu, Cathy},
+    Title = {Learning and Optimization for Mixed Autonomy Systems - A Mobility Context},
+    School = {EECS Department, University of California, Berkeley},
+    Year = {2018},
+    Month = {Sep},
+    URL = {http://www2.eecs.berkeley.edu/Pubs/TechRpts/2018/EECS-2018-132.html},
+    Number = {UCB/EECS-2018-132},
+    Abstract = {Mixed autonomy characterizes problems surrounding the gradual and complex integration of automation and AI into existing systems. In the context of mobility, we consider: how will the gradual introduction of self-driving cars change urban mobility? In this dissertation, we develop machine learning and optimization techniques to address three key challenges: 1) quantifying the behavior of such complex systems, 2) addressing inherent sensing limitations, and 3) mitigating negative effects of introducing the automation.
+
+We demonstrate that deep reinforcement learning (RL) can serve as a unifying framework for studying the behavior of disparate and complex scenarios common in mixed autonomy systems. In particular, using deep RL, we find that automating a small fraction of vehicles in various traffic scenarios can result in a significant system-level velocity increase and numerous emergent driving behaviors. We demonstrate through the development of variance reduction techniques for policy gradient methods, that deep RL has the potential to scale to high-dimensional control systems, such as traffic networks and other mixed autonomy systems. We additionally present Flow, an open source RL platform with the goal of easing the design and study of disparate traffic scenarios. To address sensing limitations inherent when only parts of a system are automated, sensor fusion is explored. In particular, we introduce a convex optimization method for cellular network measurements from AT&T at the scale of the Greater Los Angeles Area, to address a flow estimation problem previously believed to be intractable. Finally, when automation reduces the cost of the activity (of transport), anticipated negative effects include induced demand and increased energy consumption. We study how the design of the mobility system itself can mitigate these effects. In particular, joint work with Microsoft Research provides insight into how high-occupancy vehicle lanes can simultaneously satisfy comfort and time preferences of users, and provide system benefits. We introduce combinatorial optimization methods based on clustering and local search for the resulting ridesharing problem. Together, these learning and optimization methods demonstrate that a small number of vehicles and sensors can be harnessed for significant impact on urban mobility, and shed light into the future study of mixed autonomy systems.}
+}
+
+@article{Treiber2008,
+abstract = {The fuel consumption of vehicular traffic (and associated CO2 emissions) on a given road section depends strongly on the velocity profiles of the vehicles. The basis for a detailed estimation is therefore the consumption rate as a function of instantaneous velocity and acceleration. This paper will present a model for the instantaneous fuel consumption that includes vehicle properties, engine properties, and gear-selection schemes and implement it for different passenger car types representing the vehicle fleet under consideration. The paper will apply the model to trajectories from microscopic traffic simulation. The proposed model can directly be used in a microscopic traffic simulation software to calculate fuel consumption and derived emission such as carbon dioxide. Next to travel times, the fuel consumption is an important measure for the performance of future Intelligent Transportation Systems. Furthermore, the model is applied to real traffic situations by taking the velocity and acceleration as input from several sets of the NGSIM trajectory data. Dedicated data processing and smoothing algorithms have been applied to the NGSIM data to suppress the data noise that is multiplied by the necessary differentiations for obtaining more realistic velocity and acceleration time series. On the road sections covered by the NGSIM data, we found that traffic congestion typically lead to an increase of fuel consumption of the order of 80{\%} while the traveling time has increased by a factor of up to 4. We conclude that the influence of congestion on fuel consumption is distinctly lower than that on travel time.},
+author = {Treiber, Martin and Kesting, Arne and Thiemann, Christian and Treiber, M and Kesting, A and Thiemann, C},
+file = {:home/syuntoku14/OneDrive/Papers/Treiber et al. - 2008 - How Much does Traffic Congestion Increase Fuel Consumption and Emissions Applying a Fuel Consumption Model to th.pdf:pdf},
+journal = {87th Annual Meeting of the Transportation Research Board, Washington, DC.},
+mendeley-groups = {Namerikawa Lab/Traffic Control},
+title = {{How Much does Traffic Congestion Increase Fuel Consumption and Emissions? Applying a Fuel Consumption Model to the NGSIM Trajectory Data}},
+year = {2008}
+}
+
+@article{Mnih2013,
+abstract = {We present the first deep learning model to successfully learn control policies directly from high-dimensional sensory input using reinforcement learning. The model is a convolutional neural network, trained with a variant of Q-learning, whose input is raw pixels and whose output is a value function estimating future rewards. We apply our method to seven Atari 2600 games from the Arcade Learning Environment, with no adjustment of the architecture or learning algorithm. We find that it outperforms all previous approaches on six of the games and surpasses a human expert on three of them.},
+annote = {* Summery
+RL for general Atari games.
+Our goal is to connect a RL to a DNN which operates directly on RGB images and efficiently process training data by using stochastic gradient updates.
+
+* What is the novelity?
+The network was not provided with any game-specific information or hand-designed visual features.
+
+the network ar- chitecture and all hyperparameters used for training were kept constant across the games.
+
+However, it uses a batch update that has a computational cost
+per iteration that is proportional to the size of the data set, whereas we consider stochastic gradient
+updates that have a low constant cost per iteration and scale to large data-sets.
+
+In contrast our approach applies reinforcement learning end-to-end, directly
+from the visual inputs; as a result it may learn features that are directly relevant to discriminating
+action-values.
+
+
+This suggests that, despite lacking any theoretical
+convergence guarantees, our method is able to train large neural networks using a reinforcement
+learning signal and stochastic gradient descent in a stable manner.
+
+* What technique is the most highlightend?
+We refer to a neural network function approximator with weights $\theta$ as a Q-network.
+
+
+we utilize a technique known as expe-rience replay [13] where we store the agent's experiences at each time-step, et = (st, at, rt, st+1)
+in a data-set D = e1, ..., eN, pooled over many episodes into a replay memory. During the inner loop of the algorithm, we apply Q-learning updates, or minibatch updates, to samples
+
+Clipped the rewards to make it easier to use the same learning rate across multiple games.
+
+* How they prove their theory?
+
+So far, we have performed experiments on seven popular ATARI games – Beam Rider, Breakout,
+Enduro, Pong, Q*bert, Seaquest, Space Invaders.
+
+* Are there any arguments?
+
+* What to read next?
+
+* My question
+TD-gammon playing program
+the most similar prior work: neural fitted Q-learning
+using experience reply
+Contingency},
+archivePrefix = {arXiv},
+arxivId = {1312.5602},
+author = {Mnih, Volodymyr and Kavukcuoglu, Koray and Silver, David and Graves, Alex and Antonoglou, Ioannis and Wierstra, Daan and Riedmiller, Martin},
+doi = {10.1038/nature14236},
+eprint = {1312.5602},
+file = {:home/syuntoku14/OneDrive/Papers/Mnih et al. - 2013 - Playing Atari with Deep Reinforcement Learning.pdf:pdf},
+isbn = {1476-4687 (Electronic) 0028-0836 (Linking)},
+issn = {0028-0836},
+mendeley-groups = {Reinforcement Learning},
+pages = {1--9},
+pmid = {25719670},
+title = {{Playing Atari with Deep Reinforcement Learning}},
+url = {http://arxiv.org/abs/1312.5602},
+year = {2013}
+}
+
+@article{Silver2017,
+abstract = {A long-standing goal of artificial intelligence is an algorithm that learns, tabula rasa, superhuman proficiency in challenging domains. Recently, AlphaGo became the first program to defeat a world champion in the game of Go. The tree search in AlphaGo evaluated positions and selected moves using deep neural networks. These neural networks were trained by supervised learning from human expert moves, and by reinforcement learning from self-play. Here we introduce an algorithm based solely on reinforcement learning, without human data, guidance or domain knowledge beyond game rules. AlphaGo becomes its own teacher: a neural network is trained to predict AlphaGo's own move selections and also the winner of AlphaGo's games. This neural network improves the strength of the tree search, resulting in higher quality move selection and stronger self-play in the next iteration. Starting tabula rasa, our new program AlphaGo Zero achieved superhuman performance, winning 100-0 against the previously published, champion-defeating AlphaGo.},
+author = {Silver, David and Schrittwieser, Julian and Simonyan, Karen and Antonoglou, Ioannis and Huang, Aja and Guez, Arthur and Hubert, Thomas and Baker, Lucas and Lai, Matthew and Bolton, Adrian and Chen, Yutian and Lillicrap, Timothy and Hui, Fan and Sifre, Laurent and van den Driessche, George and Graepel, Thore and Hassabis, Demis},
+doi = {10.1038/nature24270},
+file = {:home/syuntoku14/OneDrive/Papers/agz{\_}unformatted{\_}nature (1).pdf:pdf},
+issn = {1476-4687},
+journal = {Nature},
+mendeley-groups = {Reinforcement Learning/Others},
+month = {oct},
+number = {7676},
+pages = {354--359},
+pmid = {29052630},
+title = {{Mastering the game of Go without human knowledge.}},
+url = {http://www.nature.com/articles/nature24270 http://www.ncbi.nlm.nih.gov/pubmed/29052630},
+volume = {550},
+year = {2017}
+}
+
+
+@article{Wu2017,
+abstract = {Flow is a new computational framework, built to support a key need triggered by the rapid growth of autonomy in ground traffic: controllers for autonomous vehicles in the presence of complex nonlinear dynamics in traffic. Leveraging recent advances in deep Reinforcement Learning (RL), Flow enables the use of RL methods such as policy gradient for traffic control and enables benchmarking the performance of classical (including hand-designed) controllers with learned policies (control laws). Flow integrates traffic microsimulator SUMO with deep reinforcement learning library rllab and enables the easy design of traffic tasks, including different networks configurations and vehicle dynamics. We use Flow to develop reliable controllers for complex problems, such as controlling mixed-autonomy traffic (involving both autonomous and human-driven vehicles) in a ring road. For this, we first show that state-of-the-art hand-designed controllers excel when in-distribution, but fail to generalize; then, we show that even simple neural network policies can solve the stabilization task across density settings and generalize to out-of-distribution settings.},
+annote = {1. どんなもの？
+Mixed autonomyのシミュレーション環境flowを開発した
+2. 先行研究と比べてどこがすごい？
+3. 技術や手法の肝はどこ？
+4. どうやって有効だと検証した？
+5. 議論はある？
+6. 次に読むべき論文は？
+flower stopper
+クラシックな手法について},
+archivePrefix = {arXiv},
+arxivId = {1710.05465},
+author = {Wu, Cathy and Kreidieh, Aboudy and Parvate, Kanaad and Vinitsky, Eugene and Bayen, Alexandre M},
+eprint = {1710.05465},
+file = {:home/syuntoku14/OneDrive/Papers/Wu et al. - 2017 - Flow Architecture and Benchmarking for Reinforcement Learning in Traffic Control.pdf:pdf},
+mendeley-groups = {Reinforcement Learning/Application/Traffic Control,Reinforcement Learning/Application/Traffic Control/Mixed Autonomy},
+pages = {1--16},
+title = {{Flow: Architecture and Benchmarking for Reinforcement Learning in Traffic Control}},
+year = {2017}
+}
+
+@article{Vinitsky2018,
+abstract = {We release new benchmarks in the use of deep reinforcement learning (RL) to create controllers for mixed-autonomy traffic, where connected and autonomous vehicles (CAVs) interact with human drivers and infrastructure. Benchmarks, such as Mujoco or the Arcade Learning Environment, have spurred new research by enabling researchers to effectively compare their results so that they can focus on algorithmic improvements and control techniques rather than system design. To promote similar advances in traffic control via RL, we propose four benchmarks, based on three new traffic scenarios, illustrating distinct reinforcement learning problems with applications to mixed-autonomy traffic. We provide an introduction to each control problem, an overview of their MDP structures, and preliminary performance results from commonly used RL algorithms. For the purpose of reproducibility, the benchmarks, reference implementations, and tutorials are available at https://github.com/flow-project/flow.},
+annote = {1. どんなもの？
+Mixed-autonomy: 自動運転と人間の関わり合い
+新しいシミュレーション環境flowに対するベンチマーク
+
+2. 先行研究と比べてどこがすごい？
+3. 技術や手法の肝はどこ？
+4. どうやって有効だと検証した？
+5. 議論はある？
+ベンチマークではstateが完全に見えてるっぽい
+Partially observable な時については？
+マルチエージェントな手法を試す
+6. 次に読むべき論文は？
+Linear policyって？
+TRPO
+PPOは調べとこう},
+author = {Vinitsky, Eugene and Kreidieh, Aboudy and Flem, Luc Le and Kheterpal, Nishant and Jang, Kathy and Wu, Cathy and Wu, Fangyu and Liaw, Richard and Liang, Eric and Bayen, Alexandre M},
+file = {:home/syuntoku14/OneDrive/Papers/Vinitsky et al. - 2018 - Benchmarks for reinforcement learning in mixed-autonomy traffic.pdf:pdf},
+issn = {1938-7228},
+journal = {Proceedings of The 2nd Conference on Robot Learning},
+mendeley-groups = {Reinforcement Learning/Application/Traffic Control,Reinforcement Learning/Application/Traffic Control/Mixed Autonomy},
+number = {CoRL},
+pages = {399--409},
+title = {{Benchmarks for reinforcement learning in mixed-autonomy traffic}},
+volume = {87},
+year = {2018}
+}
+
+@article{Schulman2017,
+abstract = {We propose a new family of policy gradient methods for reinforcement learning, which alternate between sampling data through interaction with the environment, and optimizing a "surrogate" objective function using stochastic gradient ascent. Whereas standard policy gradient methods perform one gradient update per data sample, we propose a novel objective function that enables multiple epochs of minibatch updates. The new methods, which we call proximal policy optimization (PPO), have some of the benefits of trust region policy optimization (TRPO), but they are much simpler to implement, more general, and have better sample complexity (empirically). Our experiments test PPO on a collection of benchmark tasks, including simulated robotic locomotion and Atari game playing, and we show that PPO outperforms other online policy gradient methods, and overall strikes a favorable balance between sample complexity, simplicity, and wall-time.},
+annote = {1. どんなもの？
+TRPOをベースに、もっと簡単にした。KL距離の制限を課すのではなく、Clippingによって制限をする？コスト関数をちょっと変更するだけなので、簡単に変更可能。
+2. 先行研究と比べてどこがすごい？
+3. 技術や手法の肝はどこ？
+4. どうやって有効だと検証した？
+5. 議論はある？
+6. 次に読むべき論文は？},
+archivePrefix = {arXiv},
+arxivId = {1707.06347},
+author = {Schulman, John and Wolski, Filip and Dhariwal, Prafulla and Radford, Alec and Klimov, Oleg},
+eprint = {1707.06347},
+file = {:home/syuntoku14/OneDrive/Papers/Schulman et al. - 2017 - Proximal Policy Optimization Algorithms.pdf:pdf},
+mendeley-groups = {Reinforcement Learning/General Technique/REINFORCE ADVENTURE},
+title = {{Proximal Policy Optimization Algorithms}},
+url = {https://arxiv.org/abs/1707.06347},
+year = {2017}
+}
+
+@techreport{Ho,
+abstract = {Consider learning a policy from example expert behavior, without interaction with the expert or access to reinforcement signal. One approach is to recover the expert's cost function with inverse reinforcement learning, then extract a policy from that cost function with reinforcement learning. This approach is indirect and can be slow. We propose a new general framework for directly extracting a policy from data, as if it were obtained by reinforcement learning following inverse reinforcement learning. We show that a certain instantiation of our framework draws an analogy between imitation learning and generative adversarial networks, from which we derive a model-free imitation learning algorithm that obtains significant performance gains over existing model-free methods in imitating complex behaviors in large, high-dimensional environments.},
+archivePrefix = {arXiv},
+arxivId = {1606.03476v1},
+author = {Ho, Jonathan and Ermon, Stefano},
+eprint = {1606.03476v1},
+file = {:home/syuntoku14/OneDrive/Papers/Ho, Ermon - Unknown - Generative Adversarial Imitation Learning.pdf:pdf},
+mendeley-groups = {Reinforcement Learning/General Technique/Inverse RL},
+title = {{Generative Adversarial Imitation Learning}}
+}
+
+@article{Kreidieh2018,
+annote = {Ring roadのようなclosedではなく、highwayのようにopenedなものについての研究 
+Ring roadをなるべくopend な環境に近づける工夫が面白い},
+author = {Kreidieh, Abdul Rahman and Wu, Cathy and Bayen, Alexandre M.},
+doi = {10.1109/ITSC.2018.8569485},
+file = {:home/syuntoku14/OneDrive/Papers/Kreidieh, Wu, Bayen - 2018 - Dissipating stop-and-go waves in closed and open networks via deep reinforcement learning.pdf:pdf},
+journal = {IEEE Conference on Intelligent Transportation Systems, Proceedings, ITSC},
+keywords = {Autonomous Vehicles,Deep Reinforcement Learning,Flow,Road Traffic Control},
+mendeley-groups = {Reinforcement Learning/Application/Traffic Control/Mixed Autonomy},
+mendeley-tags = {Flow},
+pages = {1475--1480},
+title = {{Dissipating stop-and-go waves in closed and open networks via deep reinforcement learning}},
+volume = {2018-Novem},
+year = {2018}
+}
+
+@article{Goodfellow2014,
+abstract = {We propose a new framework for estimating generative models via an adversarial process, in which we simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G. The training procedure for G is to maximize the probability of D making a mistake. This framework corresponds to a minimax two-player game. In the space of arbitrary functions G and D, a unique solution exists, with G recovering the training data distribution and D equal to 1/2 everywhere. In the case where G and D are defined by multilayer perceptrons, the entire system can be trained with backpropagation. There is no need for any Markov chains or unrolled approximate inference networks during either training or generation of samples. Experiments demonstrate the potential of the framework through qualitative and quantitative evaluation of the generated samples.},
+archivePrefix = {arXiv},
+arxivId = {1406.2661},
+author = {Goodfellow, Ian J. and Pouget-Abadie, Jean and Mirza, Mehdi and Xu, Bing and Warde-Farley, David and Ozair, Sherjil and Courville, Aaron and Bengio, Yoshua},
+eprint = {1406.2661},
+file = {:home/syuntoku14/OneDrive/Papers/Goodfellow et al. - 2014 - Generative Adversarial Networks.pdf:pdf},
+mendeley-groups = {Deep Learning},
+month = {jun},
+title = {{Generative Adversarial Networks}},
+url = {http://arxiv.org/abs/1406.2661},
+year = {2014}
+}
+
+@article{Stern2018,
+abstract = {Traffic waves are phenomena that emerge when the vehicular density exceeds a critical threshold. Considering the presence of increasingly automated vehicles in the traffic stream, a number of research activities have focused on the influence of automated vehicles on the bulk traffic flow. In the present article, we demonstrate experimentally that intelligent control of an autonomous vehicle is able to dampen stop-and-go waves that can arise even in the absence of geometric or lane changing triggers. Precisely, our experiments on a circular track with more than 20 vehicles show that traffic waves emerge consistently, and that they can be dampened by controlling the velocity of a single vehicle in the flow. We compare metrics for velocity, braking events, and fuel economy across experiments. These experimental findings suggest a paradigm shift in traffic management: flow control will be possible via a few mobile actuators (less than 5{\%}) long before a majority of vehicles have autonomous capabilities.},
+archivePrefix = {arXiv},
+arxivId = {1705.01693},
+author = {Stern, Raphael E. and Cui, Shumo and {Delle Monache}, Maria Laura and Bhadani, Rahul and Bunting, Matt and Churchill, Miles and Hamilton, Nathaniel and Haulcy, R'mani and Pohlmann, Hannah and Wu, Fangyu and Piccoli, Benedetto and Seibold, Benjamin and Sprinkle, Jonathan and Work, Daniel B.},
+doi = {10.1016/j.trc.2018.02.005},
+eprint = {1705.01693},
+file = {:home/syuntoku14/OneDrive/Papers/Stern et al. - 2018 - Dissipation of stop-and-go waves via control of autonomous vehicles Field experiments.pdf:pdf},
+issn = {0968090X},
+journal = {Transportation Research Part C: Emerging Technologies},
+keywords = {Autonomous vehicles,Traffic control,Traffic waves},
+mendeley-groups = {Reinforcement Learning/Application/Traffic Control/Mixed Autonomy},
+month = {may},
+pages = {205--221},
+title = {{Dissipation of stop-and-go waves via control of autonomous vehicles: Field experiments}},
+url = {http://arxiv.org/abs/1705.01693 http://dx.doi.org/10.1016/j.trc.2018.02.005},
+volume = {89},
+year = {2018}
+}
+
+@techreport{U.S.EnergyInformationAdministration2017,
+abstract = {Table 1.3 Primary Energy Consumption by Source},
+author = {{U.S. Energy Information Administration}},
+booktitle = {Monthly Energy Review},
+file = {:home/syuntoku14/OneDrive/Papers/Energy Information Administration - 2019 - Monthly Energy Review – March 2019.pdf:pdf},
+isbn = {2025862792},
+keywords = {biofuels,carbon emissions,coal,consumption,electricity,energy,energy prices,hydroelectric,international energy,natural gas,nuclear,overview,petroleum,renewable energy},
+mendeley-groups = {Reinforcement Learning/Application/Traffic Control/Mixed Autonomy},
+pages = {235},
+title = {{Monthly Energy Review}},
+url = {www.eia.gov/mer http://www.eia.gov/totalenergy/data/monthly},
+year = {2017}
+}
+
+@article{Jang,
+abstract = {Using deep reinforcement learning, we successfully train a set of two autonomous vehicles to lead a fleet of vehicles onto a roundabout and then transfer this policy from simulation to a scaled city without fine-tuning. We use Flow, a library for deep reinforcement learning in microsimulators, to train two policies, (1) a policy with noise injected into the state and action space and (2) a policy without any injected noise. In simulation, the autonomous vehicles learn an emergent metering behavior for both policies which allows smooth merging. We then directly transfer this policy without any tuning to the University of Delaware's Scaled Smart City (UDSSC), a 1:25 scale testbed for connected and automated vehicles. We characterize the performance of the transferred policy based on how thoroughly the ramp metering behavior is captured in UDSSC. We show that the noise-free policy results in severe slowdowns and only, occasionally, it exhibits acceptable metering behavior. On the other hand, the noise-injected policy consistently performs an acceptable metering behavior, implying that the noise eventually aids with the zero-shot policy transfer. Finally, the transferred, noise-injected policy leads to a 5{\%} reduction of average travel time and a reduction of 22{\%} in maximum travel time in the UDSSC. Videos of the proposed self-learning controllers can be found at https://sites.google.com/view/iccps-policy-transfer.},
+archivePrefix = {arXiv},
+arxivId = {1812.06120v2},
+author = {Jang, Kathy and Vinitsky, Eugene and Chalaki, Behdad and Remer, Ben and Beaver, Logan and Malikopoulos, Andreas A and Bayen, Alexandre},
+doi = {10.1145/3302509.3313784},
+eprint = {1812.06120v2},
+file = {:home/syuntoku14/OneDrive/Papers/Jang et al. - Unknown - Simulation to Scaled City Zero-Shot Policy Transfer for Traffic Control via Autonomous Vehicles.pdf:pdf},
+isbn = {9781450362856},
+keywords = {CCS CONCEPTS • Computing methodologies → Computational control the-ory,Dependable and fault-tolerant systems and networks,KEYWORDS Cyber-physical systems, Deep learning, Reinforcement learning, Control theory, Autonomous vehicles, Policy Transfer,Machine learning algorithms,Reinforcement learning,Robotic au-tonomy,Sensors and actuators,• Computer systems organization → Robotic control},
+mendeley-groups = {Reinforcement Learning/Application/Traffic Control/Mixed Autonomy},
+pages = {10},
+publisher = {ACM},
+title = {{Simulation to Scaled City: Zero-Shot Policy Transfer for Traffic Control via Autonomous Vehicles}},
+url = {https://doi.org/10.1145/3302509.3313784}
+}
+
+@article{Schulman2015,
+abstract = {Policy gradient methods are an appealing approach in reinforcement learning because they directly optimize the cumulative reward and can straightforwardly be used with nonlinear function approximators such as neural networks. The two main challenges are the large number of samples typically required, and the difficulty of obtaining stable and steady improvement despite the nonstationarity of the incoming data. We address the first challenge by using value functions to substantially reduce the variance of policy gradient estimates at the cost of some bias, with an exponentially-weighted estimator of the advantage function that is analogous to TD(lambda). We address the second challenge by using trust region optimization procedure for both the policy and the value function, which are represented by neural networks. Our approach yields strong empirical results on highly challenging 3D locomotion tasks, learning running gaits for bipedal and quadrupedal simulated robots, and learning a policy for getting the biped to stand up from starting out lying on the ground. In contrast to a body of prior work that uses hand-crafted policy representations, our neural network policies map directly from raw kinematics to joint torques. Our algorithm is fully model-free, and the amount of simulated experience required for the learning tasks on 3D bipeds corresponds to 1-2 weeks of real time.},
+annote = {割引率とバイアスの関係
+割引率を適用するとバイアスが発生する？
+
+
+Conjugate gradient？},
+archivePrefix = {arXiv},
+arxivId = {1506.02438},
+author = {Schulman, John and Moritz, Philipp and Levine, Sergey and Jordan, Michael and Abbeel, Pieter},
+eprint = {1506.02438},
+file = {:home/syuntoku14/OneDrive/Papers/Schulman et al. - 2015 - High-Dimensional Continuous Control Using Generalized Advantage Estimation.pdf:pdf},
+mendeley-groups = {Reinforcement Learning/General Technique/REINFORCE ADVENTURE},
+title = {{High-Dimensional Continuous Control Using Generalized Advantage Estimation}},
+year = {2015}
+}
+
+@article{Schaul2015,
+abstract = {Experience replay lets online reinforcement learning agents remember and reuse experiences from the past. In prior work, experience transitions were uniformly sampled from a replay memory. However, this approach simply replays transitions at the same frequency that they were originally experienced, regardless of their significance. In this paper we develop a framework for prioritizing experience, so as to replay important transitions more frequently, and therefore learn more efficiently. We use prioritized experience replay in Deep Q-Networks (DQN), a reinforcement learning algorithm that achieved human-level performance across many Atari games. DQN with prioritized experience replay achieves a new state-of-the-art, outperforming DQN with uniform replay on 41 out of 49 games.},
+archivePrefix = {arXiv},
+arxivId = {1511.05952},
+author = {Schaul, Tom and Quan, John and Antonoglou, Ioannis and Silver, David},
+eprint = {1511.05952},
+file = {:home/syuntoku14/OneDrive/Papers/Schaul et al. - 2015 - Prioritized Experience Replay(2).pdf:pdf},
+mendeley-groups = {Reinforcement Learning/General Technique/REINFORCE ADVENTURE},
+title = {{Prioritized Experience Replay}},
+year = {2015}
+}
+
+@article{Nagabandi2017,
+abstract = {Model-free deep reinforcement learning algorithms have been shown to be capable of learning a wide range of robotic skills, but typically require a very large number of samples to achieve good performance. Model-based algorithms, in principle, can provide for much more efficient learning, but have proven difficult to extend to expressive, high-capacity models such as deep neural networks. In this work, we demonstrate that medium-sized neural network models can in fact be combined with model predictive control (MPC) to achieve excellent sample complexity in a model-based reinforcement learning algorithm, producing stable and plausible gaits to accomplish various complex locomotion tasks. We also propose using deep neural network dynamics models to initialize a model-free learner, in order to combine the sample efficiency of model-based approaches with the high task-specific performance of model-free methods. We empirically demonstrate on MuJoCo locomotion tasks that our pure model-based approach trained on just random action data can follow arbitrary trajectories with excellent sample efficiency, and that our hybrid algorithm can accelerate model-free learning on high-speed benchmark tasks, achieving sample efficiency gains of 3-5x on swimmer, cheetah, hopper, and ant agents. Videos can be found at https://sites.google.com/view/mbmf},
+annote = {詳しくはアルゴリズム参照だが、最初適当に動いたデータを蓄え、そこからMPCで集めたデータを混ぜつつモデル予測器をトレーニングする},
+archivePrefix = {arXiv},
+arxivId = {1708.02596},
+author = {Nagabandi, Anusha and Kahn, Gregory and Fearing, Ronald S and Levine, Sergey},
+eprint = {1708.02596},
+file = {:home/syuntoku14/OneDrive/Papers/Nagabandi et al. - Unknown - Neural Network Dynamics for Model-Based Deep Reinforcement Learning with Model-Free Fine-Tuning.pdf:pdf},
+mendeley-groups = {Reinforcement Learning/General Technique/Model Based},
+month = {aug},
+title = {{Neural Network Dynamics for Model-Based Deep Reinforcement Learning with Model-Free Fine-Tuning}},
+url = {http://arxiv.org/abs/1708.02596},
+year = {2017}
+}
+
+@techreport{Nagabandi,
+abstract = {Millirobots are a promising robotic platform for many applications due to their small size and low manufacturing costs. Legged millirobots, in particular, can provide increased mobility in complex environments and improved scaling of obstacles. However, controlling these small, highly dynamic, and underactuated legged systems is difficult. Hand-engineered controllers can sometimes control these legged millirobots, but they have difficulties with dynamic maneuvers and complex terrains. We present an approach for controlling a real-world legged millirobot that is based on learned neural network models. Using less than 17 minutes of data, our method can learn a predictive model of the robot's dynamics that can enable effective gaits to be synthesized on the fly for following user-specified waypoints on a given terrain. Furthermore, by leveraging expressive, high-capacity neural network models, our approach allows for these predictions to be directly conditioned on camera images, endowing the robot with the ability to predict how different terrains might affect its dynamics. This enables sample-efficient and effective learning for locomotion of a dynamic legged millirobot on various terrains, including gravel, turf, carpet, and styrofoam. Experiment videos can be found at https://sites.google.com/view/imageconddyn},
+annote = {画像を使ってterreinを予測するのがミソかな
+MPCを理解したらもう一回戻ってこよう},
+archivePrefix = {arXiv},
+arxivId = {1711.05253v3},
+author = {Nagabandi, Anusha and Yang, Guangzhao and Asmar, Thomas and Pandya, Ravi and Kahn, Gregory and Levine, Sergey and Fearing, Ronald S},
+eprint = {1711.05253v3},
+file = {:home/syuntoku14/OneDrive/Papers/Nagabandi et al. - Unknown - Learning Image-Conditioned Dynamics Models for Control of Under-actuated Legged Millirobots.pdf:pdf},
+mendeley-groups = {Reinforcement Learning/General Technique/Model Based},
+title = {{Learning Image-Conditioned Dynamics Models for Control of Under-actuated Legged Millirobots}}
+}
+
+@article{Ng2000,
+annote = {IRLの基本の論文
+読みやすい
+
+
+Finite state spaceとinfiniteなときについて説明してる},
+author = {Ng, Andrew Y. and Ng, Andrew Y. and Russell, Stuart},
+file = {:home/syuntoku14/OneDrive/Papers/Ng, Ng, Russell - 2000 - Algorithms for Inverse Reinforcement Learning.pdf:pdf},
+journal = {IN PROC. 17TH INTERNATIONAL CONF. ON MACHINE LEARNING},
+mendeley-groups = {Reinforcement Learning/General Technique/Inverse RL},
+pages = {663----670},
+title = {{Algorithms for Inverse Reinforcement Learning}},
+year = {2000}
+}

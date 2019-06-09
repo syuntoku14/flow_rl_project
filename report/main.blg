@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: unsrt.bst
+Database file #1: mybib.bib
+Warning--empty institution in U.S.EnergyInformationAdministration2017
+Warning--empty journal in Mnih2013
+Warning--empty journal in Schulman2017
+Warning--empty journal in Wu2017
+Warning--empty institution in Ho
+Warning--empty year in Ho
+Warning--empty journal in Goodfellow2014
+Warning--empty journal in Schulman2015
+Warning--empty journal in Schaul2015
+Warning--empty journal in Nagabandi2017
+Warning--empty institution in Nagabandi
+Warning--empty year in Nagabandi
+You've used 17 entries,
+            1791 wiz_defined-function locations,
+            544 strings with 7479 characters,
+and the built_in function-call counts, 4171 in all, are:
+= -- 299
+> -- 338
+< -- 3
++ -- 119
+- -- 102
+* -- 335
+:= -- 747
+add.period$ -- 51
+call.type$ -- 17
+change.case$ -- 19
+chr.to.int$ -- 0
+cite$ -- 29
+duplicate$ -- 155
+empty$ -- 304
+format.name$ -- 102
+if$ -- 847
+int.to.chr$ -- 0
+int.to.str$ -- 17
+missing$ -- 13
+newline$ -- 88
+num.names$ -- 17
+pop$ -- 58
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 68
+stack$ -- 0
+substring$ -- 177
+swap$ -- 26
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 12
+while$ -- 34
+width$ -- 19
+write$ -- 171
+(There were 12 warnings)

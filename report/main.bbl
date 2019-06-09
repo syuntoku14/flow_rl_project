@@ -1,0 +1,115 @@
+\begin{thebibliography}{10}
+
+\bibitem{Kreidieh2018}
+Abdul~Rahman Kreidieh, Cathy Wu, and Alexandre~M. Bayen.
+\newblock {Dissipating stop-and-go waves in closed and open networks via deep
+  reinforcement learning}.
+\newblock {\em IEEE Conference on Intelligent Transportation Systems,
+  Proceedings, ITSC}, 2018-Novem:1475--1480, 2018.
+
+\bibitem{Wu:EECS-2018-132}
+Cathy Wu.
+\newblock {\em Learning and Optimization for Mixed Autonomy Systems - A
+  Mobility Context}.
+\newblock PhD thesis, EECS Department, University of California, Berkeley, Sep
+  2018.
+
+\bibitem{U.S.EnergyInformationAdministration2017}
+{U.S. Energy Information Administration}.
+\newblock {Monthly Energy Review}.
+\newblock Technical report, 2017.
+
+\bibitem{Treiber2008}
+Martin Treiber, Arne Kesting, Christian Thiemann, M~Treiber, A~Kesting, and
+  C~Thiemann.
+\newblock {How Much does Traffic Congestion Increase Fuel Consumption and
+  Emissions? Applying a Fuel Consumption Model to the NGSIM Trajectory Data}.
+\newblock {\em 87th Annual Meeting of the Transportation Research Board,
+  Washington, DC.}, 2008.
+
+\bibitem{Stern2018}
+Raphael~E. Stern, Shumo Cui, Maria~Laura {Delle Monache}, Rahul Bhadani, Matt
+  Bunting, Miles Churchill, Nathaniel Hamilton, R'mani Haulcy, Hannah Pohlmann,
+  Fangyu Wu, Benedetto Piccoli, Benjamin Seibold, Jonathan Sprinkle, and
+  Daniel~B. Work.
+\newblock {Dissipation of stop-and-go waves via control of autonomous vehicles:
+  Field experiments}.
+\newblock {\em Transportation Research Part C: Emerging Technologies},
+  89:205--221, may 2018.
+
+\bibitem{Mnih2013}
+Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Alex Graves, Ioannis
+  Antonoglou, Daan Wierstra, and Martin Riedmiller.
+\newblock {Playing Atari with Deep Reinforcement Learning}.
+\newblock pages 1--9, 2013.
+
+\bibitem{Silver2017}
+David Silver, Julian Schrittwieser, Karen Simonyan, Ioannis Antonoglou, Aja
+  Huang, Arthur Guez, Thomas Hubert, Lucas Baker, Matthew Lai, Adrian Bolton,
+  Yutian Chen, Timothy Lillicrap, Fan Hui, Laurent Sifre, George van~den
+  Driessche, Thore Graepel, and Demis Hassabis.
+\newblock {Mastering the game of Go without human knowledge.}
+\newblock {\em Nature}, 550(7676):354--359, oct 2017.
+
+\bibitem{Vinitsky2018}
+Eugene Vinitsky, Aboudy Kreidieh, Luc~Le Flem, Nishant Kheterpal, Kathy Jang,
+  Cathy Wu, Fangyu Wu, Richard Liaw, Eric Liang, and Alexandre~M Bayen.
+\newblock {Benchmarks for reinforcement learning in mixed-autonomy traffic}.
+\newblock {\em Proceedings of The 2nd Conference on Robot Learning},
+  87(CoRL):399--409, 2018.
+
+\bibitem{Schulman2017}
+John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
+\newblock {Proximal Policy Optimization Algorithms}.
+\newblock 2017.
+
+\bibitem{Wu2017}
+Cathy Wu, Aboudy Kreidieh, Kanaad Parvate, Eugene Vinitsky, and Alexandre~M
+  Bayen.
+\newblock {Flow: Architecture and Benchmarking for Reinforcement Learning in
+  Traffic Control}.
+\newblock pages 1--16, 2017.
+
+\bibitem{Ho}
+Jonathan Ho and Stefano Ermon.
+\newblock {Generative Adversarial Imitation Learning}.
+\newblock Technical report.
+
+\bibitem{Goodfellow2014}
+Ian~J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David
+  Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio.
+\newblock {Generative Adversarial Networks}.
+\newblock jun 2014.
+
+\bibitem{Schulman2015}
+John Schulman, Philipp Moritz, Sergey Levine, Michael Jordan, and Pieter
+  Abbeel.
+\newblock {High-Dimensional Continuous Control Using Generalized Advantage
+  Estimation}.
+\newblock 2015.
+
+\bibitem{Schaul2015}
+Tom Schaul, John Quan, Ioannis Antonoglou, and David Silver.
+\newblock {Prioritized Experience Replay}.
+\newblock 2015.
+
+\bibitem{Nagabandi2017}
+Anusha Nagabandi, Gregory Kahn, Ronald~S Fearing, and Sergey Levine.
+\newblock {Neural Network Dynamics for Model-Based Deep Reinforcement Learning
+  with Model-Free Fine-Tuning}.
+\newblock aug 2017.
+
+\bibitem{Nagabandi}
+Anusha Nagabandi, Guangzhao Yang, Thomas Asmar, Ravi Pandya, Gregory Kahn,
+  Sergey Levine, and Ronald~S Fearing.
+\newblock {Learning Image-Conditioned Dynamics Models for Control of
+  Under-actuated Legged Millirobots}.
+\newblock Technical report.
+
+\bibitem{Ng2000}
+Andrew~Y. Ng, Andrew~Y. Ng, and Stuart Russell.
+\newblock {Algorithms for Inverse Reinforcement Learning}.
+\newblock {\em IN PROC. 17TH INTERNATIONAL CONF. ON MACHINE LEARNING}, pages
+  663----670, 2000.
+
+\end{thebibliography}
